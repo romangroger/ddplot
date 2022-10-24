@@ -1,0 +1,124 @@
+#!/bin/bash # to have the comments colored (this is not a bash file!)
+#--------------------------------------------------------------------------------
+#
+#  DDPLOT - user settings
+#
+#  The commands are NOT case-sensitive. This file is read by the code upon
+#  startup. If more different settings files are used, start the code as
+#    ddplot -f .ddplot-mono
+#  which reads the settings from file .ddplot-mono instead of from the default
+#  .ddplot in the user's home directory.
+#
+#--------------------------------------------------------------------------------
+
+
+# Width and height of the application window in pixels
+WinSize, 1200, 900
+
+# Zoom factor
+ZoomFact, 1
+
+# Plotting of atomic positions - either "relaxed" or "unrelaxed" configuration
+# The displacements in the relaxed configuration are not scaled (real disp.)
+# Example:  AtomPos, relaxed, 10
+#           AtomPos, unrelaxed
+#           AtomPos, composite, 5
+AtomPos, unrelaxed
+
+# Factor for scaling the displacements. If the parameter is a value greater than 
+# one, the displacements are to be enlarged; if it is smaller than 1, the
+# arrows will be shrunk. If you use AUTO, all displacements will be scaled such
+# that the largest passes from one atom to another.
+DScaleFact, 1
+
+# Shortest arrow plotted [pixels]. If zero, all displacements will be plotted,
+# no matter how they are small
+Arrow.Shortest, 0
+Arrow.Thickness, 1
+
+# Coordinate system that corresponds to the data in the plot file. 
+# The third axis is usually parallel to the Burgers vector, the other two
+# are perpendicularly to each other.
+CSys, -1,2,-1, -1,0,1, 1,1,1
+
+# Projection vector in the Cartesian coordinate system [100], [010], [001]
+ProjVector, 1, 1, 1
+
+# Displacement component plotted (none, edge, screw)
+#DispComponent, none
+DispComponent, screw
+
+# Print magnitudes of displacements
+PrintMagDisp, off
+
+# The different graphical appareance of atoms correspond to the 
+# different layers (layer), types of atoms (type) or the number of
+# neighbors of atoms (neigh) - see the settings Atom.*
+ADistinguish, layer
+
+# Print the numbers of atoms ?
+AtomNumbers, off
+
+# Associates the atomic names to the numbers in the plot file
+AName, 1, Mo 
+#AName, 1, Ga
+#AName, 2, N
+
+# Appearance of the atoms in each atomic layer - diameters and thicknesses of 
+# the atoms [pixels] and colors. 
+# Recognized are 19 names of colors: white, black, red, darkRed, green, 
+# darkGreen, blue, darkBlue, cyan, darkCyan, magenta, darkMagenta, yellow, 
+# darkYellow, gray, darkGray, lightGray.
+# You can enter at least one and maximum 10 input parameters - if you give
+# less entries than is the number of atomic layers, the parameters will
+# be repeated from the beginning.
+Atom.Diameter, 10, 10, 10
+Atom.Thickness, 1
+Atom.FGColor, black
+Atom.BGColor, yellow, red, blue, green, magenta, black
+Atom.3DSphere, on
+
+# Plot traces of planes - 0 says no, any other number gives the angular step
+# in degrees
+PlaneTraces, 0
+
+# The arrows will be plotted between the nearest neighbors specified here. For
+# example, ArrNeighbors, 1, 2 means that the arrows will be plotted between the
+# first also between the second nearest neighbors.
+ArrNeighbors, 1
+
+# Cut-off radius for seeking neighboring atoms. This is needed to calculate the RDF
+# which can then be used to identify the pairs of atoms between which arrows have
+# to be plotted.
+NeighRCut, 5.0
+
+# Correct the edge components in BCC blocks that are periodic along the z-direction
+# so that the total edge component of the Burgers vector of the dislocation is zero
+# (this is specific to screw dislocations in BCC crystals)
+CorrEdgeCompBCC, off
+
+# The atoms may not have exactly the same z-coordinates and yet we would like to 
+# assign them to the same z-layer so that they are plotted with the same color. This
+# option allows one to choose the maximum difference of the z-coordinates of atoms
+# that are assigned to the same z-layer.
+ZTolerance, .0001
+
+# Some atoms in the "undeformed" configuration may be slightly displaced from perfect
+# lattice positions, e.g. in HEA materials. In this case, we bin the neighbor distances
+# into 1st, 2nd, ... neighbor bins. ddplot first collects all separations R(i) of
+# atomic pairs (i=1,... how many different separations we have). Then checks whether
+# there is |R(i)-R(j)| <= RTolDisorder for any different pairs i, j. If so, there is
+# a slight disorder. For each separation R(i), it then stores how many neighbors there
+# are within R(i)+/-RTolDisorder. It keeps only the six R(i) with the smallest number
+# of neighbors and stores them in Rbnd(k=1...6); these correspond to boundaries between
+# neighbor bins. The atomic pairs are then distributed into 5 neighbor bins whose
+# boundaries are Rbnd: 1st neighbors in Rbnd(1)...Rbnd(2), 2nd neighbors in
+# Rbnd(2)...Rbnd(3), etc. This parameter cannot be too large otherwise also separations
+# of atoms determined by lattice periodicity are regarded as disorder.
+RTolDisorder, 0.02
+
+# Set on/off antialiasing of both graphical objects and text
+Antialiase, on
+
+# Set the background color
+#BackgroundColor, red
