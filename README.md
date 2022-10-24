@@ -2,8 +2,8 @@
 
 Visualization of distortions of crystals containing dislocations using the differential displacement maps. Both screw and edge view are implemented, comparison of two different distortions, geometrical transforms, user-defined styles. Imports data in a variety of formats, exports to Postscript, bitmap and internal .dd formats. The change in the separations of neighboring atoms is depicted by arrows whose lengths correspond to the magnitudes of the changes of their separation relative to their distance in the ideal crystal.
 
-<img src="fig/w-screw.png" width="500px">&nbsp;
-<img src="fig/w-dpath.png" width="500px">
+<img src="fig/w-screw.png" width="480px">&nbsp;
+<img src="fig/w-dpath.png" width="480px">
 
 The main features implemented in ddplot are:<br>
 <ul>
@@ -32,18 +32,22 @@ The main features implemented in ddplot are:<br>
 To compile ddplot, you first need to download the Qt library. If you are using Ubuntu/Debian, run this
 
 <pre>
-sudo apt-get install build-essential
-sudo apt-get install qt5-default
+sudo apt install build-essential
+sudo apt install qt5-default
 </pre>
 
 To install ddplot, clone the latest version using <tt>git</tt>, compile and run it as follows:
-
 <pre>
 git clone https://github.com/romangroger/ddplot.git ddplot
 cd ddplot
 qmake
 make
 ./ddplot
+</pre>
+
+You should also copy (and edit) the settings file into your home directory:
+<pre>
+cp .ddplot ~/
 </pre>
 
 <h2>File formats</h2>
