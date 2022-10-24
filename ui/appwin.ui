@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AppWin</class>
+ <widget class="QMainWindow" name="AppWin">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>ddplot 5.0</string>
+  </property>
+  <widget class="QWidget" name="tabwidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="mfile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <widget class="QMenu" name="mexport">
+     <property name="title">
+      <string>&amp;Export</string>
+     </property>
+     <addaction name="actExpEPS"/>
+     <addaction name="actExpXYZ"/>
+     <addaction name="actExpPLT"/>
+     <addaction name="actExpCFG"/>
+     <addaction name="actExpVTK"/>
+    </widget>
+    <addaction name="actOpen"/>
+    <addaction name="actSave"/>
+    <addaction name="actClose"/>
+    <addaction name="actCloseAll"/>
+    <addaction name="separator"/>
+    <addaction name="actPrint"/>
+    <addaction name="separator"/>
+    <addaction name="mexport"/>
+    <addaction name="separator"/>
+    <addaction name="actAnimate"/>
+    <addaction name="actQuit"/>
+   </widget>
+   <widget class="QMenu" name="mview">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <addaction name="actZoomIn"/>
+    <addaction name="actZoomOut"/>
+    <addaction name="actFitWin"/>
+    <addaction name="separator"/>
+    <addaction name="actPanRight"/>
+    <addaction name="actPanLeft"/>
+    <addaction name="actPanUp"/>
+    <addaction name="actPanDown"/>
+    <addaction name="separator"/>
+    <addaction name="actPanFRight"/>
+    <addaction name="actPanFLeft"/>
+    <addaction name="actPanFUp"/>
+    <addaction name="actPanFDown"/>
+   </widget>
+   <widget class="QMenu" name="mplot">
+    <property name="title">
+     <string>&amp;Plot</string>
+    </property>
+    <addaction name="actSelPlots"/>
+    <addaction name="actFirstPlot"/>
+    <addaction name="actPrevPlot"/>
+    <addaction name="actNextPlot"/>
+    <addaction name="actLastPlot"/>
+    <addaction name="separator"/>
+    <addaction name="actUnrelView"/>
+    <addaction name="actRelView"/>
+    <addaction name="actCompView"/>
+    <addaction name="separator"/>
+    <addaction name="actMagDisp"/>
+    <addaction name="actNumAtom"/>
+    <addaction name="separator"/>
+    <addaction name="actNoComp"/>
+    <addaction name="actEdgeComp"/>
+    <addaction name="actScrewComp"/>
+    <addaction name="separator"/>
+    <addaction name="actDAtLayers"/>
+    <addaction name="actDAtTypes"/>
+    <addaction name="actDAtNeighbors"/>
+    <addaction name="actInertAtoms"/>
+    <addaction name="separator"/>
+    <addaction name="actBurgVect"/>
+    <addaction name="actDefDPos"/>
+    <addaction name="actDCenter"/>
+    <addaction name="actSPlanes"/>
+    <addaction name="actShowCSys"/>
+    <addaction name="actShowCells"/>
+    <addaction name="separator"/>
+    <addaction name="actShowGb"/>
+    <addaction name="separator"/>
+    <addaction name="actRelaxInfo"/>
+   </widget>
+   <widget class="QMenu" name="mlayers">
+    <property name="title">
+     <string>&amp;Layers</string>
+    </property>
+    <addaction name="actCoordAt"/>
+    <addaction name="separator"/>
+    <addaction name="actShowZLay"/>
+    <addaction name="actSetZLay"/>
+    <addaction name="actZLayUp"/>
+    <addaction name="actZLayDown"/>
+   </widget>
+   <widget class="QMenu" name="mtran">
+    <property name="title">
+     <string>&amp;Transforms</string>
+    </property>
+    <addaction name="actCoordSys"/>
+    <addaction name="separator"/>
+    <addaction name="actXZReflect"/>
+    <addaction name="actYZReflect"/>
+    <addaction name="actXYReflect"/>
+    <addaction name="separator"/>
+    <addaction name="actXRot180"/>
+    <addaction name="actYRot180"/>
+    <addaction name="actZRot180"/>
+    <addaction name="actXRot90"/>
+    <addaction name="actYRot90"/>
+    <addaction name="actZRot90"/>
+    <addaction name="separator"/>
+    <addaction name="actTransform"/>
+    <addaction name="actProjVect"/>
+   </widget>
+   <widget class="QMenu" name="mcalcs">
+    <property name="title">
+     <string>&amp;Calculations</string>
+    </property>
+    <addaction name="actCompDisp"/>
+    <addaction name="actCalcRDF"/>
+    <addaction name="actProbeDispl"/>
+    <addaction name="separator"/>
+    <addaction name="actBurgCircuit"/>
+    <addaction name="actDPosPeierlsNabarro"/>
+    <addaction name="separator"/>
+    <addaction name="actDPosDecimate"/>
+   </widget>
+   <widget class="QMenu" name="mspecials">
+    <property name="title">
+     <string>&amp;Specials</string>
+    </property>
+    <addaction name="actApplyYDiad"/>
+    <addaction name="actCorrEdgeBCC"/>
+   </widget>
+   <widget class="QMenu" name="mappear">
+    <property name="title">
+     <string>&amp;Appearance</string>
+    </property>
+    <addaction name="actLookAndFeel"/>
+    <addaction name="separator"/>
+    <addaction name="actCrystPlot"/>
+    <addaction name="actScalePos"/>
+    <addaction name="separator"/>
+    <addaction name="actArrPlot"/>
+    <addaction name="actScaleArr"/>
+    <addaction name="actArrNeigh"/>
+    <addaction name="actSetZTol"/>
+   </widget>
+   <widget class="QMenu" name="mhelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actAbout"/>
+   </widget>
+   <addaction name="mfile"/>
+   <addaction name="mview"/>
+   <addaction name="mplot"/>
+   <addaction name="mlayers"/>
+   <addaction name="mtran"/>
+   <addaction name="mcalcs"/>
+   <addaction name="mspecials"/>
+   <addaction name="mappear"/>
+   <addaction name="mhelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="statusTip">
+    <string/>
+   </property>
+   <property name="sizeGripEnabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <action name="actOpen">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset theme="fileopen">
+     <normaloff>.</normaloff>.</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actSave">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset theme="filesaveas">
+     <normaloff>.</normaloff>.</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save As...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actClose">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Close</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F3</string>
+   </property>
+  </action>
+  <action name="actCloseAll">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>C&amp;lose All</string>
+   </property>
+  </action>
+  <action name="actPrint">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset theme="fileprint">
+     <normaloff>.</normaloff>.</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Print...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actAnimate">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Animate all frames to .GIF...</string>
+   </property>
+  </action>
+  <action name="actQuit">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset theme="exit">
+     <normaloff>.</normaloff>.</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actAbout">
+   <property name="text">
+    <string>About...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actLookAndFeel">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Look and feel...</string>
+   </property>
+  </action>
+  <action name="actCrystPlot">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Crystal structure plotting...</string>
+   </property>
+  </action>
+  <action name="actScalePos">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Scale atomic positions...</string>
+   </property>
+  </action>
+  <action name="actArrPlot">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Plotting of arrows...</string>
+   </property>
+  </action>
+  <action name="actScaleArr">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>S&amp;cale length of arrows/symbols...</string>
+   </property>
+  </action>
+  <action name="actArrNeigh">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Pl&amp;ot arrows between which neighbors...</string>
+   </property>
+  </action>
+  <action name="actSetZTol">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Tolerance for the Z-coordinates of atoms in the same layer...</string>
+   </property>
+  </action>
+  <action name="actApplyYDiad">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Apply Y-axis diad operation</string>
+   </property>
+  </action>
+  <action name="actCorrEdgeBCC">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Correct the edge components in bcc due to periodicity</string>
+   </property>
+  </action>
+  <action name="actCompDisp">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Difference between relative displacements in two plots...</string>
+   </property>
+  </action>
+  <action name="actCalcRDF">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Radial distribution function...</string>
+   </property>
+  </action>
+  <action name="actProbeDispl">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Probe atomic displacements...</string>
+   </property>
+  </action>
+  <action name="actBurgCircuit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>C&amp;alculate the Burgers vector using the Burgers circuit...</string>
+   </property>
+  </action>
+  <action name="actDPosPeierlsNabarro">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Find the dislocation position/pathway...</string>
+   </property>
+  </action>
+  <action name="actCoordSys">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Give the coordinate system of the block...</string>
+   </property>
+  </action>
+  <action name="actXZReflect">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Reflect through the XZ plane</string>
+   </property>
+  </action>
+  <action name="actYZReflect">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>R&amp;eflect through the YZ plane</string>
+   </property>
+  </action>
+  <action name="actXYReflect">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Re&amp;flect through the XY plane</string>
+   </property>
+  </action>
+  <action name="actXRot180">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>R&amp;otate 180 deg about the X axis</string>
+   </property>
+  </action>
+  <action name="actYRot180">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Rot&amp;ate 180 deg about the Y axis</string>
+   </property>
+  </action>
+  <action name="actZRot180">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Rotate 180 deg a&amp;bout the Z axis</string>
+   </property>
+  </action>
+  <action name="actXRot90">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Rotate 90 deg about the &amp;X axis</string>
+   </property>
+  </action>
+  <action name="actYRot90">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Rotate 90 deg about the &amp;Y axis</string>
+   </property>
+  </action>
+  <action name="actZRot90">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Rotate 90 deg about the &amp;Z axis</string>
+   </property>
+  </action>
+  <action name="actTransform">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;User-defined transformation...</string>
+   </property>
+  </action>
+  <action name="actProjVect">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Pro&amp;ject displacements in direction</string>
+   </property>
+  </action>
+  <action name="actCoordAt">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Coordinates of atoms...</string>
+   </property>
+  </action>
+  <action name="actShowZLay">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Show/hide positions of Z layers</string>
+   </property>
+   <property name="shortcut">
+    <string>Z</string>
+   </property>
+  </action>
+  <action name="actSetZLay">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>S&amp;elect atoms in particular Z layers...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actZLayUp">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Move up in the list of Z layers</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Up</string>
+   </property>
+  </action>
+  <action name="actZLayDown">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>M&amp;ove down in the list of Z layers</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Down</string>
+   </property>
+  </action>
+  <action name="actSelPlots">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Select plots...</string>
+   </property>
+  </action>
+  <action name="actFirstPlot">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;First plot</string>
+   </property>
+   <property name="shortcut">
+    <string>Home</string>
+   </property>
+  </action>
+  <action name="actPrevPlot">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Previous plot</string>
+   </property>
+   <property name="shortcut">
+    <string>Left</string>
+   </property>
+  </action>
+  <action name="actNextPlot">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Next plot</string>
+   </property>
+   <property name="shortcut">
+    <string>Right</string>
+   </property>
+  </action>
+  <action name="actLastPlot">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Last plot</string>
+   </property>
+   <property name="shortcut">
+    <string>End</string>
+   </property>
+  </action>
+  <action name="actUnrelView">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Unrelaxed configuration</string>
+   </property>
+   <property name="shortcut">
+    <string>U</string>
+   </property>
+  </action>
+  <action name="actRelView">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Relaxed configuration</string>
+   </property>
+   <property name="shortcut">
+    <string>R</string>
+   </property>
+  </action>
+  <action name="actCompView">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Composite view (relaxed+unrelaxed)</string>
+   </property>
+   <property name="shortcut">
+    <string>C</string>
+   </property>
+  </action>
+  <action name="actMagDisp">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Print magnitudes of displacements</string>
+   </property>
+   <property name="shortcut">
+    <string>M</string>
+   </property>
+  </action>
+  <action name="actNumAtom">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Print atomic numbers</string>
+   </property>
+   <property name="shortcut">
+    <string>N</string>
+   </property>
+  </action>
+  <action name="actNoComp">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>No displacement component</string>
+   </property>
+  </action>
+  <action name="actEdgeComp">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Edge component</string>
+   </property>
+   <property name="shortcut">
+    <string>E</string>
+   </property>
+  </action>
+  <action name="actScrewComp">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Screw component</string>
+   </property>
+   <property name="shortcut">
+    <string>S</string>
+   </property>
+  </action>
+  <action name="actDAtLayers">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Distinguish atomic layers</string>
+   </property>
+   <property name="shortcut">
+    <string>L</string>
+   </property>
+  </action>
+  <action name="actDAtTypes">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Distinguish atomic types</string>
+   </property>
+   <property name="shortcut">
+    <string>T</string>
+   </property>
+  </action>
+  <action name="actDAtNeighbors">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Distinguish by numbers of neighbors</string>
+   </property>
+   <property name="shortcut">
+    <string>G</string>
+   </property>
+  </action>
+  <action name="actInertAtoms">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show inert atoms</string>
+   </property>
+   <property name="shortcut">
+    <string>I</string>
+   </property>
+  </action>
+  <action name="actBurgVect">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Define the Burgers vector...</string>
+   </property>
+  </action>
+  <action name="actDefDPos">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Define the dislocation position...</string>
+   </property>
+  </action>
+  <action name="actDCenter">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show dislocation position</string>
+   </property>
+  </action>
+  <action name="actSPlanes">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show traces of planes...</string>
+   </property>
+  </action>
+  <action name="actShowCSys">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show the coordinate system</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actShowCells">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show cells of the linked neighbor list</string>
+   </property>
+  </action>
+  <action name="actShowGb">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show grain boundary</string>
+   </property>
+  </action>
+  <action name="actRelaxInfo">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Display the relaxation info...</string>
+   </property>
+  </action>
+  <action name="actZoomIn">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Zoom &amp;in</string>
+   </property>
+   <property name="shortcut">
+    <string>+</string>
+   </property>
+  </action>
+  <action name="actZoomOut">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Zoom &amp;out</string>
+   </property>
+   <property name="shortcut">
+    <string>-</string>
+   </property>
+  </action>
+  <action name="actFitWin">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Fit window</string>
+   </property>
+   <property name="shortcut">
+    <string>*</string>
+   </property>
+  </action>
+  <action name="actPanRight">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Pan right</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+Right</string>
+   </property>
+  </action>
+  <action name="actPanLeft">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Pan left</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+Left</string>
+   </property>
+  </action>
+  <action name="actPanUp">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Pan up</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+Up</string>
+   </property>
+  </action>
+  <action name="actPanDown">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Pan down</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+Down</string>
+   </property>
+  </action>
+  <action name="actPanFRight">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Pan fast right</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Right</string>
+   </property>
+  </action>
+  <action name="actPanFLeft">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Pan fast left</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Left</string>
+   </property>
+  </action>
+  <action name="actPanFUp">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Pan fast up</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Up</string>
+   </property>
+  </action>
+  <action name="actPanFDown">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Pan fast down</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Down</string>
+   </property>
+  </action>
+  <action name="actExpEPS">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>to Postscript...</string>
+   </property>
+  </action>
+  <action name="actExpXYZ">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>to XYZ format (JMol)...</string>
+   </property>
+  </action>
+  <action name="actExpPLT">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>to PLT format (PennBOP)...</string>
+   </property>
+  </action>
+  <action name="actExpCFG">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>to CFG format (AtomEye)...</string>
+   </property>
+  </action>
+  <action name="actExpVTK">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>to VTK format (ParaView)...</string>
+   </property>
+  </action>
+  <action name="actFindDisloSites">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Find the dislocation sites... [EXPERIMENTAL]</string>
+   </property>
+  </action>
+  <action name="actDPosDecimate">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Successive decimation of the Burgers circuit... [EXPERIMENTAL]</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actAbout</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>about()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actQuit</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>quit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actOpen</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>open()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actSave</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>saveDD()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actClose</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>closeCurrent()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actCloseAll</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>closeAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actPrint</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>print()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actExpCFG</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>exportCFG()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actExpEPS</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>exportEPS()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actExpPLT</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>exportPLT()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actExpVTK</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>exportVTK()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actExpXYZ</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>exportXYZ()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actAnimate</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>animate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actZoomIn</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>zoomIn()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actZoomOut</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>zoomOut()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actFitWin</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>fitWin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actPanLeft</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>panLeft()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actPanRight</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>panRight()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actPanUp</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>panUp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actPanDown</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>panDown()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actPanFLeft</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>panFastLeft()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actPanFRight</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>panFastRight()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actPanFUp</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>panFastUp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actPanFDown</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>panFastDown()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actSelPlots</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>selectPlots()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actFirstPlot</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>selectFirstPlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actPrevPlot</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>selectPrevPlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actNextPlot</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>selectNextPlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actLastPlot</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>selectLastPlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actUnrelView</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>plotUnrelaxed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actRelView</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>plotRelaxed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actCompView</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>plotComposite()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actMagDisp</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>printMagDisp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actNumAtom</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>printAtomNum()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actNoComp</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>plotNoComponent()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actEdgeComp</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>plotEdgeComponent()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actScrewComp</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>plotScrewComponent()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actDAtLayers</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>plotAtomLayers()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actDAtTypes</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>plotAtomTypes()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actDAtNeighbors</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>plotAtomNeighbors()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actInertAtoms</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>plotInertAtoms()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actBurgVect</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>burgVect()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actDefDPos</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>defDisloPos()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actDCenter</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>disloCenter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actSPlanes</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>showPlanes()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actShowCSys</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>showCSys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actShowCells</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>showCells()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actShowGb</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>showGb()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actRelaxInfo</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>relaxInfo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actCoordAt</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>coordAtoms()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actSetZLay</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>selectZLayers()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actShowZLay</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>showZLayers()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actZLayUp</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>moveZLayersUp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actZLayDown</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>moveZLayersDown()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actXZReflect</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>slot_actXZReflect()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actXYReflect</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>slot_actXYReflect()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actYZReflect</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>slot_actYZReflect()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actProjVect</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>projVector()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actTransform</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>transform()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actXRot180</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>slot_actXRot180()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actYRot180</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>slot_actYRot180()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actZRot180</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>slot_actZRot180()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actXRot90</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>slot_actXRot90()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actYRot90</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>slot_actYRot90()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actZRot90</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>slot_actZRot90()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actCompDisp</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>compareDisp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actCalcRDF</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>calcRDF()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actProbeDispl</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>probeAtomDispl()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actDPosPeierlsNabarro</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>dlgDPosPeierlsNabarro()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actBurgCircuit</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>defineBurgersCircuit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actDPosDecimate</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>dlgDPosDecimate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actApplyYDiad</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>applyYDiad()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actCorrEdgeBCC</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>correctEdgeCompBCC()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actArrPlot</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>arrowsPlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actScaleArr</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>scaleArrow()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actArrNeigh</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>arrNeighbors()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actSetZTol</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>setZTolerance()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actCoordSys</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>coordSys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actLookAndFeel</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>lookAndFeel()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actCrystPlot</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>crystalPlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actScalePos</sender>
+   <signal>triggered()</signal>
+   <receiver>AppWin</receiver>
+   <slot>scalePos()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>about()</slot>
+  <slot>open()</slot>
+  <slot>saveDD()</slot>
+  <slot>closeAll()</slot>
+  <slot>print()</slot>
+  <slot>exportEPS()</slot>
+  <slot>exportXYZ()</slot>
+  <slot>exportPLT()</slot>
+  <slot>exportCFG()</slot>
+  <slot>exportVTK()</slot>
+  <slot>animate()</slot>
+  <slot>quit()</slot>
+  <slot>zoomIn()</slot>
+  <slot>zoomOut()</slot>
+  <slot>fitWin()</slot>
+  <slot>panRight()</slot>
+  <slot>panLeft()</slot>
+  <slot>panUp()</slot>
+  <slot>panDown()</slot>
+  <slot>panFastLeft()</slot>
+  <slot>panFastRight()</slot>
+  <slot>panFastUp()</slot>
+  <slot>panFastDown()</slot>
+  <slot>selectPlots()</slot>
+  <slot>selectFirstPlot()</slot>
+  <slot>selectPrevPlot()</slot>
+  <slot>selectNextPlot()</slot>
+  <slot>selectLastPlot()</slot>
+  <slot>plotUnrelaxed()</slot>
+  <slot>plotRelaxed()</slot>
+  <slot>plotComposite()</slot>
+  <slot>printMagDisp()</slot>
+  <slot>printAtomNum()</slot>
+  <slot>plotNoComponent()</slot>
+  <slot>plotEdgeComponent()</slot>
+  <slot>plotScrewComponent()</slot>
+  <slot>plotAtomLayers()</slot>
+  <slot>plotAtomTypes()</slot>
+  <slot>plotAtomNeighbors()</slot>
+  <slot>plotInertAtoms()</slot>
+  <slot>burgVect()</slot>
+  <slot>defDisloPos()</slot>
+  <slot>disloCenter()</slot>
+  <slot>showPlanes()</slot>
+  <slot>showCSys()</slot>
+  <slot>showCells()</slot>
+  <slot>showGb()</slot>
+  <slot>relaxInfo()</slot>
+  <slot>coordAtoms()</slot>
+  <slot>selectZLayers()</slot>
+  <slot>showZLayers()</slot>
+  <slot>moveZLayersUp()</slot>
+  <slot>moveZLayersDown()</slot>
+  <slot>coordSys()</slot>
+  <slot>slot_actXZReflect()</slot>
+  <slot>slot_actXYReflect()</slot>
+  <slot>slot_actYZReflect()</slot>
+  <slot>slot_actXRot180()</slot>
+  <slot>slot_actYRot180()</slot>
+  <slot>slot_actZRot180()</slot>
+  <slot>slot_actXRot90()</slot>
+  <slot>slot_actYRot90()</slot>
+  <slot>slot_actZRot90()</slot>
+  <slot>transform()</slot>
+  <slot>projVector()</slot>
+  <slot>compareDisp()</slot>
+  <slot>calcRDF()</slot>
+  <slot>probeAtomDispl()</slot>
+  <slot>findDisloSites()</slot>
+  <slot>defineBurgersCircuit()</slot>
+  <slot>dlgDPosPeierlsNabarro()</slot>
+  <slot>dlgDPosDecimate()</slot>
+  <slot>applyYDiad()</slot>
+  <slot>correctEdgeCompBCC()</slot>
+  <slot>lookAndFeel()</slot>
+  <slot>crystalPlot()</slot>
+  <slot>scalePos()</slot>
+  <slot>arrowsPlot()</slot>
+  <slot>scaleArrow()</slot>
+  <slot>arrNeighbors()</slot>
+  <slot>setZTolerance()</slot>
+  <slot>closeCurrent()</slot>
+ </slots>
+</ui>
