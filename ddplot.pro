@@ -35,14 +35,14 @@ RESOURCES = ddplot.qrc
 HEADERS = animate.h atomstyle.h bvect.h colormap.h cutpoly.h ddplot.h dpos_decimate.h dpos_peierlsnabarro.h	\
 	fformat.h getatomchain.h messages.h appwin.h dpospnresults.h lagrpoly.h matinv.h misc.h		\
 	neighlist.h pltwin.h rdf.h qcustomplot.h scalepos.h selectplots.h selectzlayers.h calcs.h     \
-	cline.h darray.h lookandfeel.h probeatomdispl.h rdfplot.h test.h
+	cline.h darray.h lookandfeel.h probeatomdispl.h rdfplot.h
 
 SOURCES = animate.cpp atomstyle.cpp bvect.cpp colormap.cpp cutpoly.cpp ddplot.cpp	\
 	dpos_decimate.cpp dpos_peierlsnabarro.cpp dpospnresults.cpp fformat.cpp getatomchain.cpp lagrpoly.cpp \
 	messages.cpp appwin.cpp appwin-init.cpp appwin-misc.cpp appwin-menu.cpp appwin-file.cpp appwin-plot.cpp appwin-view.cpp appwin-layers.cpp \
         appwin-transforms.cpp appwin-calculations.cpp appwin-specials.cpp appwin-appearance.cpp appwin-help.cpp matinv.cpp misc.cpp neighlist.cpp pltwin.cpp	\
 	pltwin-calc.cpp pltwin-geom.cpp pltwin-func.cpp pltwin-load.cpp pltwin-misc.cpp pltwin-render.cpp rdf.cpp qcustomplot.cpp scalepos.cpp	\
-	selectplots.cpp selectzlayers.cpp calcs.cpp cline.cpp darray.cpp lookandfeel.cpp rdfplot.cpp test.cpp probeatomdispl.cpp
+	selectplots.cpp selectzlayers.cpp calcs.cpp cline.cpp darray.cpp lookandfeel.cpp rdfplot.cpp probeatomdispl.cpp
 
 FORMS =  ui/dabout.ui ui/appwin.ui ui/dburgvect.ui ui/dcalcbvector.ui ui/ddposburgcircuitresults.ui ui/dfinddposdecimate.ui ui/drdfplot.ui ui/ddefinebcircuit.ui	        \
 	ui/ddpospnresults.ui ui/ddefdislopos.ui	\
