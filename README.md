@@ -27,9 +27,25 @@ The main features implemented in ddplot are:<br>
   <li>user-defined settings can be stored in ~/.ddplot or loaded at the start</li>
 </ul>
 
-<h2>Download:</h2>
-<tt>git clone https://github.com/romangroger/ddplot.git ddplot</tt>
-  
+<h2>Download & installation:</h2>
+
+To compile ddplot, you first need to download the Qt library. If you are using Ubuntu/Debian, run this
+
+<pre>
+sudo apt-get install build-essential
+sudo apt-get install qt5-default
+</pre>
+
+To install ddplot, clone the latest version using <tt>git</tt>, compile and run it as follows:
+
+<pre>
+git clone https://github.com/romangroger/ddplot.git ddplot
+cd ddplot
+qmake
+make
+./ddplot
+</pre>
+
 <h2>File formats</h2>
 
 Following is a list of file formats that are readable by ddplot. If you want to use this code for
