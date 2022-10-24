@@ -38,7 +38,7 @@ sudo apt install qt5-default
 
 To install ddplot, clone the latest version using <tt>git</tt>, compile and run it as follows:
 <pre>
-git clone git://github.com/romangroger/ddplot.git ddplot
+git clone https://github.com/romangroger/ddplot.git ddplot
 cd ddplot
 qmake
 make
