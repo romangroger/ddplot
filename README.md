@@ -220,7 +220,7 @@ The mandatory fields are <tt>NUM_UNREL</tt>, <tt>COOR_UNREL</tt>, <tt>NUM_REL</t
 
 <h2>Web site & citations:</h2>
 
-The main website of the <tt>ddplot</tt> project is <tt>http://groger.ipm.cz/download/ddplot.html</tt>.<br>
+The main website of the <tt>ddplot</tt> project is <a href="http://groger.ipm.cz/download/ddplot.html" target="_blank">http://groger.ipm.cz/download/ddplot.html</a>.<br>
 Roman Gr&ouml;ger (<A HREF="mailto:groger@ipm.cz">groger@ipm.cz</A>)<br><br>
 
 To keep you updated about new versions of ddplot, send me your e-mail and I will add you into the
